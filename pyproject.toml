@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "irag"
+version = "0.1.0"
+description = "IRAG: a BERT-based list-aware architecture for efficient passage reranking via multi-stage collective passage attention"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+authors = [{ name = "IRAG contributors" }]
+keywords = [
+    "passage reranking",
+    "bert",
+    "collective attention",
+    "information retrieval",
+    "ms marco",
+    "wikiqa",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Indexing",
+]
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.30",
+    "numpy>=1.23",
+    "scipy>=1.9",
+    "tqdm>=0.66",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/liftkkkk/irag"
+
+[tool.setuptools]
+packages = ["irag"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
