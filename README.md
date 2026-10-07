@@ -54,6 +54,41 @@ MS MARCO passage reranking dev, official BM25 top-1,000 candidates:
 | IRAG (200 tok) | 0.347 | 0.359 |
 | **IRAG (400 tok)** | **0.364** | **0.377** |
 
+### External evidence: the official MS MARCO leaderboard
+
+The IRAG (400 tok) numbers correspond to the anonymous entry **"BERT base + attention
+ranking"** (reranking, submitted 2019/08/26) on the official
+[MS MARCO Passage Ranking leaderboard](https://microsoft.github.io/MSMARCO-Passage-Ranking-Submissions/leaderboard/):
+**MRR@10 = 0.364 (eval) / 0.377 (dev)**, where *eval* is the hidden leaderboard test
+set scored by the organizers (6,530 queries) and *dev* is the public dev set (6,980
+queries). Both scores come from the official organizer evaluation — MRR@10 =
+0.3640139 (eval) and 0.3772412 (dev). The evaluation email from the MS MARCO team
+(Daniel Campos, Microsoft, Aug 27, 2019) is archived
+[here](docs/msmarco_eval_email.png), and a snapshot of the leaderboard entry is
+[here](docs/msmarco_leaderboard.png).
+
+Among reranking submissions dated on or before that day, only "Enriched BERT base +
+AOA index" (0.368 eval, 2019/05/06) scores higher on eval; the dev MRR@10 of 0.377 is
+the highest of any reranking entry submitted up to that date. BERT-base reranking
+systems submitted **7 months to ~2.7 years later** still score below it on both metrics
+(values from the official leaderboard CSV, retrieved 2026-10-07):
+
+| Leaderboard entry | Team | Submitted | MRR@10 (eval) | MRR@10 (dev) |
+|---|---|---|---|---|
+| **BERT base + attention ranking (IRAG)** | anonymous | 2019/08/26 | **0.364** | **0.377** |
+| CSEN-base (256) | T03lab, South China Normal University | 2022/04/14 | 0.360 | 0.373 |
+| LTR-BERT (pointwise / CrossEntropy loss) | Weijie Liu, OpenPLM | 2022/03/30 | 0.356 | 0.366 |
+| Anonymous | anonymous | 2022/02/06 | 0.356 | 0.365 |
+| Bert-base trained with self-supervised manner in 128-tokens limitation | South China Normal University | 2021/10/20 | 0.355 | 0.362 |
+| BERT-base + SMAP | Dengwen Lin, NUDT | 2021/07/31 | 0.355 | 0.367 |
+| PCBERT-base (256 tokens) | SCNU-FOUR | 2021/03/15 | 0.355 | 0.361 |
+| PCBERT-base (128 tokens) | SCNU-FOUR | 2021/03/03 | 0.349 | 0.357 |
+| BERT-Base | IR group, Tsinghua University | 2020/04/08 | 0.349 | 0.358 |
+
+The leaderboard data itself is maintained in the
+[microsoft/MSMARCO-Passage-Ranking-Submissions](https://github.com/microsoft/MSMARCO-Passage-Ranking-Submissions)
+repository (`leaderboard/leaderboard.csv`).
+
 Ablations (WIKIQA test): see `--cpa_variant`, `--k`, `--train_selection` and
 `--training_mode` below; every row of the paper's ablation tables maps to one flag.
 
